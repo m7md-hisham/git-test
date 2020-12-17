@@ -27,9 +27,9 @@
                     <li class="nav-item"><a class="nav-link" href="#"><span class="fa fa-list fa-lg"></span> Menu</a></li>
                     <li class="nav-item"><a class="nav-link" href="contactus.html"><span class="fa fa-address-card fa-lg"></span> Contact</a></li>
                 </ul>
-                <span class="navbar-text"> 
+                <span id="loginButton" class="navbar-text"> 
                 <!-- To introduce our modal to the navbar at the top -->
-                    <a data-toggle="modal" data-target="#loginModal">
+                    <a>
                         <span class="fa fa-sign-in"></span> Login
                     </a>
                 </span>
@@ -174,8 +174,9 @@
                     <img src="img/logo.png" class="img-fluid">
                 </div>
                 <div class="col-12 col-sm-3 align-self-center">
-                    <button class="btn btn-warning btn-lg btn-block" type="button"
-                    data-toggle="modal" data-target="#reserveTable">Reserve Table</button>
+                    <div id="reserveTableButton">
+                        <button class="btn btn-warning btn-lg btn-block" type="button">Reserve Table</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -378,6 +379,19 @@
                 $("#carouselButton").children("span").removeClass('fa-play');
                 $("#carouselButton").children("span").addClass('fa-pause');
             }
+        });
+    });
+
+    // The following code is for reserveTable and login buttons
+    $(document).ready(function() {
+        $("#reserveTableButton").click(function() {
+            $("#reserveTableButton").children("button").attr("data-toggle", "modal");
+            $("#reserveTableButton").children("button").attr("data-target", "#reserveTable");
+        });
+
+        $("#loginButton").click(function() {
+            $("#loginButton").children("a").attr("data-toggle", "modal");
+            $("#loginButton").children("a").attr("data-target", "#loginModal");
         });
     });
 </script>
